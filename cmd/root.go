@@ -85,7 +85,9 @@ func initConfig() {
 		viper.SetConfigName(".mk")
 	}
 
-	viper.AutomaticEnv() // read in environment variables that match
+	// read in environment variables that match MK_
+	viper.SetEnvPrefix("mk")
+	viper.AutomaticEnv()
 
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
